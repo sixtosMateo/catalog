@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+  <html>
+  <head>
+    </head>
+
+
+  <body>
+    {%if 'username' not in session %}
+    <a href="{{url_for('show_login')}}"> Login </a></br>
+    {% else %}
+    <a href="{{url_for('gdisconnect')}}">Logout </a></br>
+    <a href="{{url_for('addItem')}}"> Add Item</a>
+    {% endif %}
+
+
+
+
+
+
+      <h1>Category</h1>
+
+      <div class = "category_column">
+        {% for category in categorys %}
+        <a href = "{{url_for('show_category_item', category_id = category.id)}}">
+          <p>{{category.name}}</p>
+        </a>
+        {% endfor %}
+      </div>
+
+      <h1>Latest Items</h1>
+
+      <div class = "item_column">
+
+      {% for item in items %}
+      <a href = "{{url_for('show_item_description', category_id = item.category_id, item_id = item.id)}}">
+        <p>{{item.name}} </p>
+      </a>
+      {% endfor %}
+      </div>
+
+
+    </body>
+
+    </html>

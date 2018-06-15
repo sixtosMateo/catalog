@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    </head>
+
+  <body>
+    <div class ="editItemForm">
+      <form action="#" method = "post">
+        <h1>Name:</h1>
+        <input type ="text" name="name"placeholder="{{items.name}}">
+
+        <h1>Description:</h1>
+        <textarea name="description" placeholder="{{items.description}}" rows="10" cols="30"></textarea>
+        <h1>Category:</h1>
+        <select name="category" >
+          <option selected = "selected" value = "{{items.category_id}}"> </option>>
+          {% for category in categorys %}
+
+          <option value="{{category.id}}">{{category.name}}</option>
+          {% endfor %}
+        </select>
+      </br></br>
+        <button type="submit" id="submit" type="submit">Edit</button>
+      </form>
+      <a href = "{{url_for('show_catalog')}}">
+      		<button>
+      		Cancel</button>
+      	</a>
+    </div>
+
+  </body>
+
+    </html>
